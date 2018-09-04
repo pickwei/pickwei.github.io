@@ -26,7 +26,6 @@ after_script:
 branches:
   only:
   - next
-
 env:
  global:
    # Github Pages
