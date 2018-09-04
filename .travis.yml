@@ -30,6 +30,6 @@ branches:
 env:
  global:
    # Github Pages
-   - GH_REF: github.com/weipengjun/weipengjun.github.io  这里替换你的github仓库地址
+   - GH_REF: github.com/weipengjun/weipengjun.github.io
    # Coding Pages
-  #  - CO_REF: git.coding.net/weipengjun/weipengjun.coding.me.git  这里替换你的coding仓库地址
+  #  - CO_REF: git.coding.net/weipengjun/weipengjun.coding.me.git
