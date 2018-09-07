@@ -48,7 +48,7 @@ footer:
   since: 2018
 
   # Icon between year and copyright info.
-  icon: star
+  icon: user
 
   # If not defined, will be used `author` from Hexo main config.
   copyright:
@@ -63,7 +63,7 @@ footer:
     version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
-  custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
+  # custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -96,7 +96,7 @@ menu:
   about: /about/ || user
   tags: /tags/ || tags
   categories: /categories/ || th
-  # archives: /archives/ || archive
+  archives: /archives/ || archive
   # schedule: /schedule/ || calendar
   # sitemap: /sitemap.xml || sitemap
   # commonweal: /404/ || heartbeat
@@ -148,8 +148,8 @@ links_icon: link
 links_title: Links
 links_layout: block
 #links_layout: inline
-# links:
-#   Title: https://weipengjun.com
+links:
+  Title: https://weipengjun.com
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
@@ -208,7 +208,7 @@ sidebar:
 scroll_to_more: true
 
 # Automatically saving scroll position on each post/page in cookies.
-save_scroll: false
+save_scroll: true
 
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
@@ -249,8 +249,8 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: false
-  license: CC BY-NC-SA 3.0
+  enable: true
+  license: MTC
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
 
@@ -277,7 +277,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night
 
 
 # ---------------------------------------------------------------
@@ -395,7 +395,7 @@ valine:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-#livere_uid: your uid
+livere_uid: MTAyMC8zOTU2MC8xNjA4Nw
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -486,7 +486,7 @@ needmoreshare2:
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
-  ua_enable: true
+  ua_enable: false
   admin_enable: false
   user_id: 0
   #admin_nickname: Author
@@ -675,7 +675,7 @@ motion:
 fancybox: true
 
 # Progress bar in the top during page loading.
-pace: false
+pace: true
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
@@ -769,7 +769,7 @@ vendors:
   # Or use direct links below:
   # pace: //cdn.bootcss.com/pace/1.0.2/pace.min.js
   # pace_css: //cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
-  pace: true
+  pace: 
   pace_css:
 
   # Internal version: 1.0.0
