@@ -35,7 +35,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "Hexo, NexT, weipengjun, weipengjun.com"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -249,7 +249,7 @@ post_wordcount:
 
 # Declare license on posts
 post_copyright:
-  enable: true
+  enable: false
   license: MTC
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
