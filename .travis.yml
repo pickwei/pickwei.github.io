@@ -14,8 +14,8 @@ script:
 after_script:
   - cd ./public
   - git init
-  - git config user.name "weipengjun"
-  - git config user.email "835500598@qq.com"
+  - git config user.name "${GH_NAME}"
+  - git config user.email "${GH_EMALL}"
   - git add .
   - git commit -m "updete blog"
   # Github Pages
