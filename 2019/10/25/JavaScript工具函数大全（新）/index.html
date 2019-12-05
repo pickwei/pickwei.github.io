@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript工具函数大全（新）">
+<meta property="og:url" content="https://weipengjun.com/2019/10/25/JavaScript工具函数大全（新）/index.html">
+<meta property="og:site_name" content="Pengjun">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/10/14/16dc9be9d5110a01?w=496&h=199&f=png&s=56546">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/10/14/16dc9c052c9d52b9?w=451&h=725&f=png&s=80346">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/10/14/16dc99df28f517a0?w=998&h=568&f=png&s=187504">
+<meta property="og:updated_time" content="2019-12-05T10:33:43.483Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript工具函数大全（新）">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/10/14/16dc9be9d5110a01?w=496&h=199&f=png&s=56546">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://weipengjun.com/2019/10/25/JavaScript工具函数大全（新）/"/>
+
+
+
+
+
+  <title>JavaScript工具函数大全（新） | Pengjun</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pengjun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://weipengjun.com/2019/10/25/JavaScript工具函数大全（新）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="weipengjun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pengjun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">JavaScript工具函数大全（新）</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-25T17:55:11+00:00">
+                2019-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- JavaScript工具函数大全（新）  -->
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>一线大厂笔试题灵感来源</strong><br>目录：</p>
+<ul>
+<li>第一部分：数组</li>
+<li>第二部分：函数</li>
+<li>第三部分：字符串</li>
+<li>第四部分：对象</li>
+<li>第五部分：数字</li>
+<li>第六部分：浏览器操作及其它</li>
+</ul>
+<p><strong>筛选自以下两篇文章：</strong></p>
+<blockquote>
+<ul>
+<li><a href="https://medium.com/better-programming/127-helpful-javascript-snippets-you-can-learn-in-30-seconds-or-less-part-1-of-6-bc2bc890dfe5" target="_blank" rel="noopener">《127 Helpful JavaScript Snippets You Can Learn in 30 Seconds or Less》</a></li>
+<li><a href="https://github.com/30-seconds/30-seconds-of-code" target="_blank" rel="noopener">《30 seconds of code》</a></li>
+</ul>
+</blockquote>
+<p>原本只想筛选下上面的那篇文章，在精简掉了部分多余且无用的工具函数后，感觉不够。于是顺藤摸瓜，找到了原地址： <a href="https://github.com/30-seconds/30-seconds-of-code" target="_blank" rel="noopener">30 seconds of code</a></p>
+<p>然后将所有代码段都看了遍，筛选了以下一百多段代码片段，并加入了部分自己的理解。<br>另外，<strong>本文工具函数的命名非常值得借鉴。</strong></p>
+<h2 id="1-第一部分：数组"><a href="#1-第一部分：数组" class="headerlink" title="1. 第一部分：数组"></a>1. 第一部分：数组</h2><h3 id="1-all：布尔全等判断"><a href="#1-all：布尔全等判断" class="headerlink" title="1. all：布尔全等判断"></a>1. <code>all</code>：布尔全等判断</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> all = <span class="function">(<span class="params">arr, fn = <span class="built_in">Boolean</span></span>) =&gt;</span> arr.every(fn);</span><br><span class="line"></span><br><span class="line">all([<span class="number">4</span>, <span class="number">2</span>, <span class="number">3</span>], x =&gt; x &gt; <span class="number">1</span>); <span class="comment">// true</span></span><br><span class="line">all([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-allEqual：检查数组各项相等"><a href="#2-allEqual：检查数组各项相等" class="headerlink" title="2. allEqual：检查数组各项相等"></a>2. <code>allEqual</code>：检查数组各项相等</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> allEqual = <span class="function"><span class="params">arr</span> =&gt;</span> arr.every(<span class="function"><span class="params">val</span> =&gt;</span> val === arr[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">allEqual([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]); <span class="comment">// false</span></span><br><span class="line">allEqual([<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-approximatelyEqual：约等于"><a href="#3-approximatelyEqual：约等于" class="headerlink" title="3.approximatelyEqual：约等于"></a>3.<code>approximatelyEqual</code>：约等于</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> approximatelyEqual = <span class="function">(<span class="params">v1, v2, epsilon = <span class="number">0.001</span></span>) =&gt;</span> <span class="built_in">Math</span>.abs(v1 - v2) &lt; epsilon;</span><br><span class="line"></span><br><span class="line">approximatelyEqual(<span class="built_in">Math</span>.PI / <span class="number">2.0</span>, <span class="number">1.5708</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-arrayToCSV：数组转CSV格式（带空格的字符串）"><a href="#4-arrayToCSV：数组转CSV格式（带空格的字符串）" class="headerlink" title="4.arrayToCSV：数组转CSV格式（带空格的字符串）"></a>4.<code>arrayToCSV</code>：数组转<code>CSV</code>格式（带空格的字符串）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> arrayToCSV = <span class="function">(<span class="params">arr, delimiter = <span class="string">','</span></span>) =&gt;</span></span><br><span class="line">  arr.map(<span class="function"><span class="params">v</span> =&gt;</span> v.map(<span class="function"><span class="params">x</span> =&gt;</span> <span class="string">`"<span class="subst">$&#123;x&#125;</span>"`</span>).join(delimiter)).join(<span class="string">'\n'</span>);</span><br><span class="line">  </span><br><span class="line">arrayToCSV([[<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'c'</span>, <span class="string">'d'</span>]]); <span class="comment">// '"a","b"\n"c","d"'</span></span><br><span class="line">arrayToCSV([[<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'c'</span>, <span class="string">'d'</span>]], <span class="string">';'</span>); <span class="comment">// '"a";"b"\n"c";"d"'</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-arrayToHtmlList：数组转li列表"><a href="#5-arrayToHtmlList：数组转li列表" class="headerlink" title="5.arrayToHtmlList：数组转li列表"></a>5.<code>arrayToHtmlList</code>：数组转<code>li</code>列表</h3><p>此代码段将数组的元素转换为<code>&lt;li&gt;</code>标签，并将其附加到给定ID的列表中。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arrayToHtmlList = <span class="function">(<span class="params">arr, listID</span>) =&gt;</span></span><br><span class="line">  (<span class="function"><span class="params">el</span> =&gt;</span> (</span><br><span class="line">    (el = <span class="built_in">document</span>.querySelector(<span class="string">'#'</span> + listID)),</span><br><span class="line">    (el.innerHTML += arr.map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="string">`&lt;li&gt;<span class="subst">$&#123;item&#125;</span>&lt;/li&gt;`</span>).join(<span class="string">''</span>))</span><br><span class="line">  ))();</span><br><span class="line">  </span><br><span class="line">arrayToHtmlList([<span class="string">'item 1'</span>, <span class="string">'item 2'</span>], <span class="string">'myListID'</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-average：平均数"><a href="#6-average：平均数" class="headerlink" title="6. average：平均数"></a>6. <code>average</code>：平均数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> average = <span class="function">(<span class="params">...nums</span>) =&gt;</span> nums.reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> acc + val, <span class="number">0</span>) / nums.length;</span><br><span class="line">average(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// 2</span></span><br><span class="line">average(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-averageBy：数组对象属性平均数"><a href="#7-averageBy：数组对象属性平均数" class="headerlink" title="7. averageBy：数组对象属性平均数"></a>7. <code>averageBy</code>：数组对象属性平均数</h3><p>此代码段将获取数组对象属性的平均值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> averageBy = <span class="function">(<span class="params">arr, fn</span>) =&gt;</span></span><br><span class="line">  arr.map(<span class="keyword">typeof</span> fn === <span class="string">'function'</span> ? fn : <span class="function"><span class="params">val</span> =&gt;</span> val[fn]).reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> acc + val, <span class="number">0</span>) /</span><br><span class="line">  arr.length;</span><br><span class="line">  </span><br><span class="line">averageBy([&#123; <span class="attr">n</span>: <span class="number">4</span> &#125;, &#123; <span class="attr">n</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">n</span>: <span class="number">8</span> &#125;, &#123; <span class="attr">n</span>: <span class="number">6</span> &#125;], o =&gt; o.n); <span class="comment">// 5</span></span><br><span class="line">averageBy([&#123; <span class="attr">n</span>: <span class="number">4</span> &#125;, &#123; <span class="attr">n</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">n</span>: <span class="number">8</span> &#125;, &#123; <span class="attr">n</span>: <span class="number">6</span> &#125;], <span class="string">'n'</span>); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="8-bifurcate：拆分断言后的数组"><a href="#8-bifurcate：拆分断言后的数组" class="headerlink" title="8.bifurcate：拆分断言后的数组"></a>8.<code>bifurcate</code>：拆分断言后的数组</h3><p>可以根据每个元素返回的值，使用<code>reduce()</code>和<code>push()</code> 将元素添加到第二次参数<code>fn</code>中 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bifurcate = <span class="function">(<span class="params">arr, filter</span>) =&gt;</span></span><br><span class="line">  arr.reduce(<span class="function">(<span class="params">acc, val, i</span>) =&gt;</span> (acc[filter[i] ? <span class="number">0</span> : <span class="number">1</span>].push(val), acc), [[], []]);</span><br><span class="line">bifurcate([<span class="string">'beep'</span>, <span class="string">'boop'</span>, <span class="string">'foo'</span>, <span class="string">'bar'</span>], [<span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="literal">true</span>]); </span><br><span class="line"><span class="comment">// [ ['beep', 'boop', 'bar'], ['foo'] ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="9-castArray：其它类型转数组"><a href="#9-castArray：其它类型转数组" class="headerlink" title="9. castArray：其它类型转数组"></a>9. <code>castArray</code>：其它类型转数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> castArray = <span class="function"><span class="params">val</span> =&gt;</span> (<span class="built_in">Array</span>.isArray(val) ? val : [val]);</span><br><span class="line"></span><br><span class="line">castArray(<span class="string">'foo'</span>); <span class="comment">// ['foo']</span></span><br><span class="line">castArray([<span class="number">1</span>]); <span class="comment">// [1]</span></span><br><span class="line">castArray(<span class="number">1</span>); <span class="comment">// [1]</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-compact：去除数组中的无效-无用值"><a href="#10-compact：去除数组中的无效-无用值" class="headerlink" title="10. compact：去除数组中的无效/无用值"></a>10. <code>compact</code>：去除数组中的无效/无用值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> compact = <span class="function"><span class="params">arr</span> =&gt;</span> arr.filter(<span class="built_in">Boolean</span>);</span><br><span class="line"></span><br><span class="line">compact([<span class="number">0</span>, <span class="number">1</span>, <span class="literal">false</span>, <span class="number">2</span>, <span class="string">''</span>, <span class="number">3</span>, <span class="string">'a'</span>, <span class="string">'e'</span> * <span class="number">23</span>, <span class="literal">NaN</span>, <span class="string">'s'</span>, <span class="number">34</span>]); </span><br><span class="line"><span class="comment">// [ 1, 2, 3, 'a', 's', 34 ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="11-countOccurrences：检测数值出现次数"><a href="#11-countOccurrences：检测数值出现次数" class="headerlink" title="11. countOccurrences：检测数值出现次数"></a>11. <code>countOccurrences</code>：检测数值出现次数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> countOccurrences = <span class="function">(<span class="params">arr, val</span>) =&gt;</span> arr.reduce(<span class="function">(<span class="params">a, v</span>) =&gt;</span> (v === val ? a + <span class="number">1</span> : a), <span class="number">0</span>);</span><br><span class="line">countOccurrences([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">1</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<h3 id="12-deepFlatten：递归扁平化数组"><a href="#12-deepFlatten：递归扁平化数组" class="headerlink" title="12. deepFlatten：递归扁平化数组"></a>12. <code>deepFlatten</code>：递归扁平化数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> deepFlatten = <span class="function"><span class="params">arr</span> =&gt;</span> [].concat(...arr.map(<span class="function"><span class="params">v</span> =&gt;</span> (<span class="built_in">Array</span>.isArray(v) ? deepFlatten(v) : v)));</span><br><span class="line"></span><br><span class="line">deepFlatten([<span class="number">1</span>, [<span class="number">2</span>], [[<span class="number">3</span>], <span class="number">4</span>], <span class="number">5</span>]); <span class="comment">// [1,2,3,4,5]</span></span><br></pre></td></tr></table></figure>
+<h3 id="13-difference：寻找差异"><a href="#13-difference：寻找差异" class="headerlink" title="13. difference：寻找差异"></a>13. <code>difference</code>：寻找差异</h3><p>此代码段查找两个数组之间的差异。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> difference = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>(b);</span><br><span class="line">  <span class="keyword">return</span> a.filter(<span class="function"><span class="params">x</span> =&gt;</span> !s.has(x));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">difference([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>]); <span class="comment">// [3]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="14-differenceBy：先执行再寻找差异"><a href="#14-differenceBy：先执行再寻找差异" class="headerlink" title="14. differenceBy：先执行再寻找差异"></a>14. <code>differenceBy</code>：先执行再寻找差异</h3><p>在将给定函数应用于两个列表的每个元素之后，此方法返回两个数组之间的差异。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> differenceBy = <span class="function">(<span class="params">a, b, fn</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>(b.map(fn));</span><br><span class="line">  <span class="keyword">return</span> a.filter(<span class="function"><span class="params">x</span> =&gt;</span> !s.has(fn(x)));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">differenceBy([<span class="number">2.1</span>, <span class="number">1.2</span>], [<span class="number">2.3</span>, <span class="number">3.4</span>], <span class="built_in">Math</span>.floor); <span class="comment">// [1.2]</span></span><br><span class="line">differenceBy([&#123; <span class="attr">x</span>: <span class="number">2</span> &#125;, &#123; <span class="attr">x</span>: <span class="number">1</span> &#125;], [&#123; <span class="attr">x</span>: <span class="number">1</span> &#125;], v =&gt; v.x); <span class="comment">// [ &#123; x: 2 &#125; ]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="15-dropWhile：删除不符合条件的值"><a href="#15-dropWhile：删除不符合条件的值" class="headerlink" title="15. dropWhile：删除不符合条件的值"></a>15. <code>dropWhile</code>：删除不符合条件的值</h3><p>此代码段从数组顶部开始删除元素，直到传递的函数返回为<code>true</code>。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dropWhile = <span class="function">(<span class="params">arr, func</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">while</span> (arr.length &gt; <span class="number">0</span> &amp;&amp; !func(arr[<span class="number">0</span>])) arr = arr.slice(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">dropWhile([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], n =&gt; n &gt;= <span class="number">3</span>); <span class="comment">// [3,4]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="16-flatten：指定深度扁平化数组"><a href="#16-flatten：指定深度扁平化数组" class="headerlink" title="16. flatten：指定深度扁平化数组"></a>16. <code>flatten</code>：指定深度扁平化数组</h3><p>此代码段第二参数可指定深度。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> flatten = <span class="function">(<span class="params">arr, depth = <span class="number">1</span></span>) =&gt;</span></span><br><span class="line">  arr.reduce(<span class="function">(<span class="params">a, v</span>) =&gt;</span> a.concat(depth &gt; <span class="number">1</span> &amp;&amp; <span class="built_in">Array</span>.isArray(v) ? flatten(v, depth - <span class="number">1</span>) : v), []);</span><br><span class="line"></span><br><span class="line">flatten([<span class="number">1</span>, [<span class="number">2</span>], <span class="number">3</span>, <span class="number">4</span>]); <span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line">flatten([<span class="number">1</span>, [<span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>], <span class="number">6</span>], <span class="number">7</span>], <span class="number">8</span>], <span class="number">2</span>); <span class="comment">// [1, 2, 3, [4, 5], 6, 7, 8]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="17-indexOfAll：返回数组中某值的所有索引"><a href="#17-indexOfAll：返回数组中某值的所有索引" class="headerlink" title="17. indexOfAll：返回数组中某值的所有索引"></a>17. <code>indexOfAll</code>：返回数组中某值的所有索引</h3><p>此代码段可用于获取数组中某个值的所有索引，如果此值中未包含该值，则返回一个空数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> indexOfAll = <span class="function">(<span class="params">arr, val</span>) =&gt;</span> arr.reduce(<span class="function">(<span class="params">acc, el, i</span>) =&gt;</span> (el === val ? [...acc, i] : acc), []);</span><br><span class="line"></span><br><span class="line">indexOfAll([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">1</span>); <span class="comment">// [0,3]</span></span><br><span class="line">indexOfAll([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>); <span class="comment">// []</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="18-intersection：两数组的交集"><a href="#18-intersection：两数组的交集" class="headerlink" title="18. intersection：两数组的交集"></a>18. <code>intersection</code>：两数组的交集</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> intersection = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>(b);</span><br><span class="line">  <span class="keyword">return</span> a.filter(<span class="function"><span class="params">x</span> =&gt;</span> s.has(x));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">intersection([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>]); <span class="comment">// [2, 3]</span></span><br></pre></td></tr></table></figure>
+<h3 id="19-intersectionWith：两数组都符合条件的交集"><a href="#19-intersectionWith：两数组都符合条件的交集" class="headerlink" title="19. intersectionWith：两数组都符合条件的交集"></a>19. <code>intersectionWith</code>：两数组都符合条件的交集</h3><p>此片段可用于在对两个数组的每个元素执行了函数之后，返回两个数组中存在的元素列表。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> intersectionBy = <span class="function">(<span class="params">a, b, fn</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> s = <span class="keyword">new</span> <span class="built_in">Set</span>(b.map(fn));</span><br><span class="line">  <span class="keyword">return</span> a.filter(<span class="function"><span class="params">x</span> =&gt;</span> s.has(fn(x)));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">intersectionBy([<span class="number">2.1</span>, <span class="number">1.2</span>], [<span class="number">2.3</span>, <span class="number">3.4</span>], <span class="built_in">Math</span>.floor); <span class="comment">// [2.1]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="20-intersectionWith：先比较后返回交集"><a href="#20-intersectionWith：先比较后返回交集" class="headerlink" title="20. intersectionWith：先比较后返回交集"></a>20. <code>intersectionWith</code>：先比较后返回交集</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> intersectionWith = <span class="function">(<span class="params">a, b, comp</span>) =&gt;</span> a.filter(<span class="function"><span class="params">x</span> =&gt;</span> b.findIndex(<span class="function"><span class="params">y</span> =&gt;</span> comp(x, y)) !== <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">intersectionWith([<span class="number">1</span>, <span class="number">1.2</span>, <span class="number">1.5</span>, <span class="number">3</span>, <span class="number">0</span>], [<span class="number">1.9</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">3.9</span>], (a, b) =&gt; <span class="built_in">Math</span>.round(a) === <span class="built_in">Math</span>.round(b)); <span class="comment">// [1.5, 3, 0]</span></span><br></pre></td></tr></table></figure>
+<h3 id="21-minN：返回指定长度的升序数组"><a href="#21-minN：返回指定长度的升序数组" class="headerlink" title="21. minN：返回指定长度的升序数组"></a>21. <code>minN</code>：返回指定长度的升序数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> minN = <span class="function">(<span class="params">arr, n = <span class="number">1</span></span>) =&gt;</span> [...arr].sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b).slice(<span class="number">0</span>, n);</span><br><span class="line"></span><br><span class="line">minN([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// [1]</span></span><br><span class="line">minN([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>); <span class="comment">// [1,2]</span></span><br></pre></td></tr></table></figure>
+<h3 id="22-negate：根据条件反向筛选"><a href="#22-negate：根据条件反向筛选" class="headerlink" title="22. negate：根据条件反向筛选"></a>22. <code>negate</code>：根据条件反向筛选</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> negate = <span class="function"><span class="params">func</span> =&gt;</span> (...args) =&gt; !func(...args);</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>].filter(negate(<span class="function"><span class="params">n</span> =&gt;</span> n % <span class="number">2</span> === <span class="number">0</span>)); <span class="comment">// [ 1, 3, 5 ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="23-randomIntArrayInRange：生成两数之间指定长度的随机数组"><a href="#23-randomIntArrayInRange：生成两数之间指定长度的随机数组" class="headerlink" title="23. randomIntArrayInRange：生成两数之间指定长度的随机数组"></a>23. <code>randomIntArrayInRange</code>：生成两数之间指定长度的随机数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> randomIntArrayInRange = <span class="function">(<span class="params">min, max, n = <span class="number">1</span></span>) =&gt;</span></span><br><span class="line">  <span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: n &#125;, () =&gt; <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min);</span><br><span class="line">  </span><br><span class="line">randomIntArrayInRange(<span class="number">12</span>, <span class="number">35</span>, <span class="number">10</span>); <span class="comment">// [ 34, 14, 27, 17, 30, 27, 20, 26, 21, 14 ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="24-sample：在指定数组中获取随机数"><a href="#24-sample：在指定数组中获取随机数" class="headerlink" title="24. sample：在指定数组中获取随机数"></a>24. <code>sample</code>：在指定数组中获取随机数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sample = <span class="function"><span class="params">arr</span> =&gt;</span> arr[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * arr.length)];</span><br><span class="line"></span><br><span class="line">sample([<span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">11</span>]); <span class="comment">// 9</span></span><br></pre></td></tr></table></figure>
+<h3 id="25-sampleSize：在指定数组中获取指定长度的随机数"><a href="#25-sampleSize：在指定数组中获取指定长度的随机数" class="headerlink" title="25. sampleSize：在指定数组中获取指定长度的随机数"></a>25. <code>sampleSize</code>：在指定数组中获取指定长度的随机数</h3><p>此代码段可用于从数组中获取指定长度的随机数，直至穷尽数组。<br><strong>使用<code>Fisher-Yates</code>算法对数组中的元素进行随机选择。</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sampleSize = <span class="function">(<span class="params">[...arr], n = <span class="number">1</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> m = arr.length;</span><br><span class="line">  <span class="keyword">while</span> (m) &#123;</span><br><span class="line">    <span class="keyword">const</span> i = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * m--);</span><br><span class="line">    [arr[m], arr[i]] = [arr[i], arr[m]];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr.slice(<span class="number">0</span>, n);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">sampleSize([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">2</span>); <span class="comment">// [3,1]</span></span><br><span class="line">sampleSize([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>); <span class="comment">// [2,3,1]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="26-shuffle：“洗牌”-数组"><a href="#26-shuffle：“洗牌”-数组" class="headerlink" title="26. shuffle：“洗牌” 数组"></a>26. <code>shuffle</code>：“洗牌” 数组</h3><p>此代码段使用<code>Fisher-Yates</code>算法随机排序数组的元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> shuffle = <span class="function">(<span class="params">[...arr]</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> m = arr.length;</span><br><span class="line">  <span class="keyword">while</span> (m) &#123;</span><br><span class="line">    <span class="keyword">const</span> i = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * m--);</span><br><span class="line">    [arr[m], arr[i]] = [arr[i], arr[m]];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> foo = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">shuffle(foo); <span class="comment">// [2, 3, 1], foo = [1, 2, 3]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="27-nest：根据parent-id生成树结构（阿里一面真题）"><a href="#27-nest：根据parent-id生成树结构（阿里一面真题）" class="headerlink" title="27. nest：根据parent_id生成树结构（阿里一面真题）"></a>27. <code>nest</code>：根据<code>parent_id</code>生成树结构（阿里一面真题）</h3><p>根据每项的<code>parent_id</code>，生成具体树形结构的对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nest = <span class="function">(<span class="params">items, id = <span class="literal">null</span>, link = <span class="string">'parent_id'</span></span>) =&gt;</span></span><br><span class="line">  items</span><br><span class="line">    .filter(<span class="function"><span class="params">item</span> =&gt;</span> item[link] === id)</span><br><span class="line">    .map(<span class="function"><span class="params">item</span> =&gt;</span> (&#123; ...item, <span class="attr">children</span>: nest(items, item.id) &#125;));</span><br></pre></td></tr></table></figure></p>
+<p>用法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> comments = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">parent_id</span>: <span class="literal">null</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">parent_id</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">parent_id</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">parent_id</span>: <span class="number">2</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">5</span>, <span class="attr">parent_id</span>: <span class="number">4</span> &#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> nestedComments = nest(comments); <span class="comment">// [&#123; id: 1, parent_id: null, children: [...] &#125;]</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/14/16dc9be9d5110a01?w=496&amp;h=199&amp;f=png&amp;s=56546" alt=""><br><strong>强烈建议去理解这个的实现，因为这是我亲身遇到的阿里一面真题：</strong><br><img src="https://user-gold-cdn.xitu.io/2019/10/14/16dc9c052c9d52b9?w=451&amp;h=725&amp;f=png&amp;s=80346" alt=""></p>
+<h2 id="2-第二部分：函数"><a href="#2-第二部分：函数" class="headerlink" title="2. 第二部分：函数"></a>2. 第二部分：函数</h2><h3 id="1-attempt：捕获函数运行异常"><a href="#1-attempt：捕获函数运行异常" class="headerlink" title="1.attempt：捕获函数运行异常"></a>1.<code>attempt</code>：捕获函数运行异常</h3><p>该代码段执行一个函数，返回结果或捕获的错误对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">onst attempt = <span class="function">(<span class="params">fn, ...args</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> fn(...args);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="keyword">return</span> e <span class="keyword">instanceof</span> <span class="built_in">Error</span> ? e : <span class="keyword">new</span> <span class="built_in">Error</span>(e);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> elements = attempt(<span class="function"><span class="keyword">function</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">document</span>.querySelectorAll(selector);</span><br><span class="line">&#125;, <span class="string">'&gt;_&gt;'</span>);</span><br><span class="line"><span class="keyword">if</span> (elements <span class="keyword">instanceof</span> <span class="built_in">Error</span>) elements = []; <span class="comment">// elements = []</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-defer：推迟执行"><a href="#2-defer：推迟执行" class="headerlink" title="2. defer：推迟执行"></a>2. <code>defer</code>：推迟执行</h3><p>此代码段延迟了函数的执行，直到清除了当前调用堆栈。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> defer = <span class="function">(<span class="params">fn, ...args</span>) =&gt;</span> setTimeout(fn, <span class="number">1</span>, ...args);</span><br><span class="line"></span><br><span class="line">defer(<span class="built_in">console</span>.log, <span class="string">'a'</span>), <span class="built_in">console</span>.log(<span class="string">'b'</span>); <span class="comment">// logs 'b' then 'a'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-runPromisesInSeries：运行多个Promises"><a href="#3-runPromisesInSeries：运行多个Promises" class="headerlink" title="3. runPromisesInSeries：运行多个Promises"></a>3. <code>runPromisesInSeries</code>：运行多个<code>Promises</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> runPromisesInSeries = <span class="function"><span class="params">ps</span> =&gt;</span> ps.reduce(<span class="function">(<span class="params">p, next</span>) =&gt;</span> p.then(next), <span class="built_in">Promise</span>.resolve());</span><br><span class="line"><span class="keyword">const</span> delay = <span class="function"><span class="params">d</span> =&gt;</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> setTimeout(r, d));</span><br><span class="line"></span><br><span class="line">runPromisesInSeries([<span class="function"><span class="params">()</span> =&gt;</span> delay(<span class="number">1000</span>), () =&gt; delay(<span class="number">2000</span>)]);</span><br><span class="line"><span class="comment">//依次执行每个Promises ，总共需要3秒钟才能完成</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-timeTaken：计算函数执行时间"><a href="#4-timeTaken：计算函数执行时间" class="headerlink" title="4. timeTaken：计算函数执行时间"></a>4. <code>timeTaken</code>：计算函数执行时间</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> timeTaken = <span class="function"><span class="params">callback</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.time(<span class="string">'timeTaken'</span>);</span><br><span class="line">  <span class="keyword">const</span> r = callback();</span><br><span class="line">  <span class="built_in">console</span>.timeEnd(<span class="string">'timeTaken'</span>);</span><br><span class="line">  <span class="keyword">return</span> r;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">timeTaken(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">10</span>)); <span class="comment">// 1024, (logged): timeTaken: 0.02099609375ms</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-createEventHub：简单的发布-订阅模式"><a href="#5-createEventHub：简单的发布-订阅模式" class="headerlink" title="5. createEventHub：简单的发布/订阅模式"></a>5. <code>createEventHub</code>：简单的发布/订阅模式</h3><p>创建一个发布/订阅（发布-订阅）事件集线，有<code>emit</code>，<code>on</code>和<code>off</code>方法。</p>
+<ol>
+<li>使用<code>Object.create(null)</code>创建一个空的<code>hub</code>对象。</li>
+<li><code>emit</code>，根据<code>event</code>参数解析处理程序数组，然后<code>.forEach()</code>通过传入数据作为参数来运行每个处理程序。</li>
+<li><code>on</code>，为事件创建一个数组（若不存在则为空数组），然后<code>.push()</code>将处理程序添加到该数组。</li>
+<li><code>off</code>，用<code>.findIndex()</code>在事件数组中查找处理程序的索引，并使用<code>.splice()</code>删除。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> createEventHub = <span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">  hub: <span class="built_in">Object</span>.create(<span class="literal">null</span>),</span><br><span class="line">  emit(event, data) &#123;</span><br><span class="line">    (<span class="keyword">this</span>.hub[event] || []).forEach(<span class="function"><span class="params">handler</span> =&gt;</span> handler(data));</span><br><span class="line">  &#125;,</span><br><span class="line">  on(event, handler) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.hub[event]) <span class="keyword">this</span>.hub[event] = [];</span><br><span class="line">    <span class="keyword">this</span>.hub[event].push(handler);</span><br><span class="line">  &#125;,</span><br><span class="line">  off(event, handler) &#123;</span><br><span class="line">    <span class="keyword">const</span> i = (<span class="keyword">this</span>.hub[event] || []).findIndex(<span class="function"><span class="params">h</span> =&gt;</span> h === handler);</span><br><span class="line">    <span class="keyword">if</span> (i &gt; <span class="number">-1</span>) <span class="keyword">this</span>.hub[event].splice(i, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.hub[event].length === <span class="number">0</span>) <span class="keyword">delete</span> <span class="keyword">this</span>.hub[event];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>用法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handler = <span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data);</span><br><span class="line"><span class="keyword">const</span> hub = createEventHub();</span><br><span class="line"><span class="keyword">let</span> increment = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 订阅，监听不同事件</span></span><br><span class="line">hub.on(<span class="string">'message'</span>, handler);</span><br><span class="line">hub.on(<span class="string">'message'</span>, () =&gt; <span class="built_in">console</span>.log(<span class="string">'Message event fired'</span>));</span><br><span class="line">hub.on(<span class="string">'increment'</span>, () =&gt; increment++);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发布：发出事件以调用所有订阅给它们的处理程序，并将数据作为参数传递给它们</span></span><br><span class="line">hub.emit(<span class="string">'message'</span>, <span class="string">'hello world'</span>); <span class="comment">// 打印 'hello world' 和 'Message event fired'</span></span><br><span class="line">hub.emit(<span class="string">'message'</span>, &#123; <span class="attr">hello</span>: <span class="string">'world'</span> &#125;); <span class="comment">// 打印 对象 和 'Message event fired'</span></span><br><span class="line">hub.emit(<span class="string">'increment'</span>); <span class="comment">// increment = 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止订阅</span></span><br><span class="line">hub.off(<span class="string">'message'</span>, handler);</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-memoize：缓存函数"><a href="#6-memoize：缓存函数" class="headerlink" title="6.memoize：缓存函数"></a>6.<code>memoize</code>：缓存函数</h3><p>通过实例化一个<code>Map</code>对象来创建一个空的缓存。</p>
+<p>通过检查输入值的函数输出是否已缓存，返回存储一个参数的函数，该参数将被提供给已记忆的函数；如果没有，则存储并返回它。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> memoize = <span class="function"><span class="params">fn</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> cache = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">  <span class="keyword">const</span> cached = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cache.has(val) ? cache.get(val) : cache.set(val, fn.call(<span class="keyword">this</span>, val)) &amp;&amp; cache.get(val);</span><br><span class="line">  &#125;;</span><br><span class="line">  cached.cache = cache;</span><br><span class="line">  <span class="keyword">return</span> cached;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Ps: 这个版本可能不是很清晰，还有Vue源码版的：</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Create a cached version of a pure function.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">cached</span>&lt;<span class="title">F</span>: <span class="title">Function</span>&gt; (<span class="params">fn: F</span>): <span class="title">F</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line">  <span class="keyword">return</span> (<span class="function"><span class="keyword">function</span> <span class="title">cachedFn</span> (<span class="params">str: string</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> hit = cache[str]</span><br><span class="line">    <span class="keyword">return</span> hit || (cache[str] = fn(str))</span><br><span class="line">  &#125;: any)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="7-once：只调用一次的函数"><a href="#7-once：只调用一次的函数" class="headerlink" title="7. once：只调用一次的函数"></a>7. <code>once</code>：只调用一次的函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> once = <span class="function"><span class="params">fn</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> called = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!called) &#123;</span><br><span class="line">      called = <span class="literal">true</span></span><br><span class="line">      fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="8-flattenObject：以键的路径扁平化对象"><a href="#8-flattenObject：以键的路径扁平化对象" class="headerlink" title="8.flattenObject：以键的路径扁平化对象"></a>8.<code>flattenObject</code>：以键的路径扁平化对象</h3><p>使用递归。</p>
+<ol>
+<li>利用<code>Object.keys(obj)</code>联合<code>Array.prototype.reduce()</code>，以每片叶子节点转换为扁平的路径节点。</li>
+<li>如果键的值是一个对象，则函数使用调用适当的自身<code>prefix</code>以创建路径<code>Object.assign()</code>。</li>
+<li>否则，它将适当的前缀键值对添加到累加器对象。</li>
+<li><code>prefix</code>除非您希望每个键都有一个前缀，否则应始终省略第二个参数。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> flattenObject = <span class="function">(<span class="params">obj, prefix = <span class="string">''</span></span>) =&gt;</span></span><br><span class="line">  <span class="built_in">Object</span>.keys(obj).reduce(<span class="function">(<span class="params">acc, k</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> pre = prefix.length ? prefix + <span class="string">'.'</span> : <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj[k] === <span class="string">'object'</span>) <span class="built_in">Object</span>.assign(acc, flattenObject(obj[k], pre + k));</span><br><span class="line">    <span class="keyword">else</span> acc[pre + k] = obj[k];</span><br><span class="line">    <span class="keyword">return</span> acc;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">  </span><br><span class="line">flattenObject(&#123; <span class="attr">a</span>: &#123; <span class="attr">b</span>: &#123; <span class="attr">c</span>: <span class="number">1</span> &#125; &#125;, <span class="attr">d</span>: <span class="number">1</span> &#125;); <span class="comment">// &#123; 'a.b.c': 1, d: 1 &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="9-unflattenObject：以键的路径展开对象"><a href="#9-unflattenObject：以键的路径展开对象" class="headerlink" title="9. unflattenObject：以键的路径展开对象"></a>9. <code>unflattenObject</code>：以键的路径展开对象</h3><p>与上面的相反，展开对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> unflattenObject = <span class="function"><span class="params">obj</span> =&gt;</span></span><br><span class="line">  <span class="built_in">Object</span>.keys(obj).reduce(<span class="function">(<span class="params">acc, k</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (k.indexOf(<span class="string">'.'</span>) !== <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> keys = k.split(<span class="string">'.'</span>);</span><br><span class="line">      <span class="built_in">Object</span>.assign(</span><br><span class="line">        acc,</span><br><span class="line">        <span class="built_in">JSON</span>.parse(</span><br><span class="line">          <span class="string">'&#123;'</span> +</span><br><span class="line">            keys.map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> (i !== keys.length - <span class="number">1</span> ? <span class="string">`"<span class="subst">$&#123;v&#125;</span>":&#123;`</span> : <span class="string">`"<span class="subst">$&#123;v&#125;</span>":`</span>)).join(<span class="string">''</span>) +</span><br><span class="line">            obj[k] +</span><br><span class="line">            <span class="string">'&#125;'</span>.repeat(keys.length)</span><br><span class="line">        )</span><br><span class="line">      );</span><br><span class="line">    &#125; <span class="keyword">else</span> acc[k] = obj[k];</span><br><span class="line">    <span class="keyword">return</span> acc;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">  </span><br><span class="line">unflattenObject(&#123; <span class="string">'a.b.c'</span>: <span class="number">1</span>, <span class="attr">d</span>: <span class="number">1</span> &#125;); <span class="comment">// &#123; a: &#123; b: &#123; c: 1 &#125; &#125;, d: 1 &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>这个的用途，在做<code>Tree</code>组件或复杂表单时取值非常舒服。</p>
+<h2 id="3-第三部分：字符串"><a href="#3-第三部分：字符串" class="headerlink" title="3. 第三部分：字符串"></a>3. 第三部分：字符串</h2><h3 id="1-byteSize：返回字符串的字节长度"><a href="#1-byteSize：返回字符串的字节长度" class="headerlink" title="1.byteSize：返回字符串的字节长度"></a>1.<code>byteSize</code>：返回字符串的字节长度</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> byteSize = <span class="function"><span class="params">str</span> =&gt;</span> <span class="keyword">new</span> Blob([str]).size;</span><br><span class="line"></span><br><span class="line">byteSize(<span class="string">'😀'</span>); <span class="comment">// 4</span></span><br><span class="line">byteSize(<span class="string">'Hello World'</span>); <span class="comment">// 11</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-capitalize：首字母大写"><a href="#2-capitalize：首字母大写" class="headerlink" title="2. capitalize：首字母大写"></a>2. <code>capitalize</code>：首字母大写</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> capitalize = <span class="function">(<span class="params">[first, ...rest]</span>) =&gt;</span></span><br><span class="line">  first.toUpperCase() + rest.join(<span class="string">''</span>);</span><br><span class="line">  </span><br><span class="line">capitalize(<span class="string">'fooBar'</span>); <span class="comment">// 'FooBar'</span></span><br><span class="line">capitalize(<span class="string">'fooBar'</span>, <span class="literal">true</span>); <span class="comment">// 'Foobar'</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-capitalizeEveryWord：每个单词首字母大写"><a href="#3-capitalizeEveryWord：每个单词首字母大写" class="headerlink" title="3. capitalizeEveryWord：每个单词首字母大写"></a>3. <code>capitalizeEveryWord</code>：每个单词首字母大写</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> capitalizeEveryWord = <span class="function"><span class="params">str</span> =&gt;</span> str.replace(<span class="regexp">/\b[a-z]/g</span>, char =&gt; char.toUpperCase());</span><br><span class="line"></span><br><span class="line">capitalizeEveryWord(<span class="string">'hello world!'</span>); <span class="comment">// 'Hello World!'</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-decapitalize：首字母小写"><a href="#4-decapitalize：首字母小写" class="headerlink" title="4. decapitalize：首字母小写"></a>4. <code>decapitalize</code>：首字母小写</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> decapitalize = <span class="function">(<span class="params">[first, ...rest]</span>) =&gt;</span></span><br><span class="line">  first.toLowerCase() + rest.join(<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">decapitalize(<span class="string">'FooBar'</span>); <span class="comment">// 'fooBar'</span></span><br><span class="line">decapitalize(<span class="string">'FooBar'</span>); <span class="comment">// 'fooBar'</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-luhnCheck：银行卡号码校验（luhn算法）"><a href="#5-luhnCheck：银行卡号码校验（luhn算法）" class="headerlink" title="5. luhnCheck：银行卡号码校验（luhn算法）"></a>5. <code>luhnCheck</code>：银行卡号码校验（<code>luhn</code>算法）</h3><p><code>Luhn</code>算法的实现，用于验证各种标识号，例如信用卡号，IMEI号，国家提供商标识号等。</p>
+<p>与<code>String.prototype.split(&#39;&#39;)</code>结合使用，以获取数字数组。获得最后一个数字。实施<code>luhn</code>算法。如果被整除，则返回，否则返回。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> luhnCheck = <span class="function"><span class="params">num</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> arr = (num + <span class="string">''</span>)</span><br><span class="line">    .split(<span class="string">''</span>)</span><br><span class="line">    .reverse()</span><br><span class="line">    .map(<span class="function"><span class="params">x</span> =&gt;</span> <span class="built_in">parseInt</span>(x));</span><br><span class="line">  <span class="keyword">let</span> lastDigit = arr.splice(<span class="number">0</span>, <span class="number">1</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="keyword">let</span> sum = arr.reduce(<span class="function">(<span class="params">acc, val, i</span>) =&gt;</span> (i % <span class="number">2</span> !== <span class="number">0</span> ? acc + val : acc + ((val * <span class="number">2</span>) % <span class="number">9</span>) || <span class="number">9</span>), <span class="number">0</span>);</span><br><span class="line">  sum += lastDigit;</span><br><span class="line">  <span class="keyword">return</span> sum % <span class="number">10</span> === <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>用例:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">luhnCheck(<span class="string">'4485275742308327'</span>); <span class="comment">// true</span></span><br><span class="line">luhnCheck(<span class="number">6011329933655299</span>); <span class="comment">//  false</span></span><br><span class="line">luhnCheck(<span class="number">123456789</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="补充：银行卡号码的校验规则："><a href="#补充：银行卡号码的校验规则：" class="headerlink" title="补充：银行卡号码的校验规则："></a>补充：<strong>银行卡号码的校验规则</strong>：</h4><p>关于<code>luhn</code>算法，可以参考以下文章：</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/cc11001100/p/9357177.html" target="_blank" rel="noopener">银行卡号码校验算法（Luhn算法，又叫模10算法）</a></p>
+</blockquote>
+<p>银行卡号码的校验采用<code>Luhn</code>算法，校验过程大致如下：</p>
+<ol>
+<li><p>从右到左给卡号字符串编号，最右边第一位是1，最右边第二位是2，最右边第三位是3….</p>
+</li>
+<li><p>从右向左遍历，对每一位字符t执行第三个步骤，并将每一位的计算结果相加得到一个数s。</p>
+</li>
+<li><p>对每一位的计算规则：如果这一位是奇数位，则返回t本身，如果是偶数位，则先将t乘以2得到一个数n，如果n是一位数（小于10），直接返回n，否则将n的个位数和十位数相加返回。</p>
+</li>
+<li><p>如果s能够整除10，则此号码有效，否则号码无效。</p>
+</li>
+</ol>
+<p>因为最终的结果会对10取余来判断是否能够整除10，所以又叫做模10算法。</p>
+<p>当然，还是库比较香: <strong>bankcardinfo</strong></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/10/14/16dc99df28f517a0?w=998&amp;h=568&amp;f=png&amp;s=187504" alt=""></p>
+<h3 id="6-splitLines：将多行字符串拆分为行数组。"><a href="#6-splitLines：将多行字符串拆分为行数组。" class="headerlink" title="6. splitLines：将多行字符串拆分为行数组。"></a>6. <code>splitLines</code>：将多行字符串拆分为行数组。</h3><p>使用<code>String.prototype.split()</code>和正则表达式匹配换行符并创建一个数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> splitLines = <span class="function"><span class="params">str</span> =&gt;</span> str.split(<span class="regexp">/\r?\n/</span>);</span><br><span class="line"></span><br><span class="line">splitLines(<span class="string">'This\nis a\nmultiline\nstring.\n'</span>); <span class="comment">// ['This', 'is a', 'multiline', 'string.' , '']</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="7-stripHTMLTags：删除字符串中的HTMl标签"><a href="#7-stripHTMLTags：删除字符串中的HTMl标签" class="headerlink" title="7. stripHTMLTags：删除字符串中的HTMl标签"></a>7. <code>stripHTMLTags</code>：删除字符串中的<code>HTMl</code>标签</h3><p>从字符串中删除<code>HTML / XML</code>标签。</p>
+<p>使用正则表达式从字符串中删除<code>HTML / XML</code> 标记。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> stripHTMLTags = <span class="function"><span class="params">str</span> =&gt;</span> str.replace(<span class="regexp">/&lt;[^&gt;]*&gt;/g</span>, <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line">stripHTMLTags(<span class="string">'&lt;p&gt;&lt;em&gt;lorem&lt;/em&gt; &lt;strong&gt;ipsum&lt;/strong&gt;&lt;/p&gt;'</span>); <span class="comment">// 'lorem ipsum'</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="4-第四部分：对象"><a href="#4-第四部分：对象" class="headerlink" title="4. 第四部分：对象"></a>4. 第四部分：对象</h2><h3 id="1-dayOfYear：当前日期天数"><a href="#1-dayOfYear：当前日期天数" class="headerlink" title="1. dayOfYear：当前日期天数"></a>1. <code>dayOfYear</code>：当前日期天数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dayOfYear = <span class="function"><span class="params">date</span> =&gt;</span></span><br><span class="line">  <span class="built_in">Math</span>.floor((date - <span class="keyword">new</span> <span class="built_in">Date</span>(date.getFullYear(), <span class="number">0</span>, <span class="number">0</span>)) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>);</span><br><span class="line"></span><br><span class="line">dayOfYear(<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">// 285</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-forOwn：迭代属性并执行回调"><a href="#2-forOwn：迭代属性并执行回调" class="headerlink" title="2. forOwn：迭代属性并执行回调"></a>2. <code>forOwn</code>：迭代属性并执行回调</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> forOwn = <span class="function">(<span class="params">obj, fn</span>) =&gt;</span> <span class="built_in">Object</span>.keys(obj).forEach(<span class="function"><span class="params">key</span> =&gt;</span> fn(obj[key], key, obj));</span><br><span class="line">forOwn(&#123; <span class="attr">foo</span>: <span class="string">'bar'</span>, <span class="attr">a</span>: <span class="number">1</span> &#125;, v =&gt; <span class="built_in">console</span>.log(v)); <span class="comment">// 'bar', 1</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-Get-Time-From-Date：返回当前24小时制时间的字符串"><a href="#3-Get-Time-From-Date：返回当前24小时制时间的字符串" class="headerlink" title="3. Get Time From Date：返回当前24小时制时间的字符串"></a>3. <code>Get Time From Date</code>：返回当前24小时制时间的字符串</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getColonTimeFromDate = <span class="function"><span class="params">date</span> =&gt;</span> date.toTimeString().slice(<span class="number">0</span>, <span class="number">8</span>);</span><br><span class="line"></span><br><span class="line">getColonTimeFromDate(<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">// "08:38:00"</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-Get-Days-Between-Dates：返回日期间的天数"><a href="#4-Get-Days-Between-Dates：返回日期间的天数" class="headerlink" title="4. Get Days Between Dates：返回日期间的天数"></a>4. <code>Get Days Between Dates</code>：返回日期间的天数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getDaysDiffBetweenDates = <span class="function">(<span class="params">dateInitial, dateFinal</span>) =&gt;</span></span><br><span class="line">  (dateFinal - dateInitial) / (<span class="number">1000</span> * <span class="number">3600</span> * <span class="number">24</span>);</span><br><span class="line">  </span><br><span class="line">getDaysDiffBetweenDates(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019-01-01'</span>), <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2019-10-14'</span>)); <span class="comment">// 286</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-is：检查值是否为特定类型。"><a href="#5-is：检查值是否为特定类型。" class="headerlink" title="5. is：检查值是否为特定类型。"></a>5. <code>is</code>：检查值是否为特定类型。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> is = <span class="function">(<span class="params">type, val</span>) =&gt;</span> ![, <span class="literal">null</span>].includes(val) &amp;&amp; val.constructor === type;</span><br><span class="line"></span><br><span class="line">is(<span class="built_in">Array</span>, [<span class="number">1</span>]); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">ArrayBuffer</span>, <span class="keyword">new</span> <span class="built_in">ArrayBuffer</span>()); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">Map</span>, <span class="keyword">new</span> <span class="built_in">Map</span>()); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">RegExp</span>, /./g); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">Set</span>, <span class="keyword">new</span> <span class="built_in">Set</span>()); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">WeakMap</span>, <span class="keyword">new</span> <span class="built_in">WeakMap</span>()); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">WeakSet</span>, <span class="keyword">new</span> <span class="built_in">WeakSet</span>()); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">String</span>, <span class="string">''</span>); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">String</span>, <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">''</span>)); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">Number</span>, <span class="number">1</span>); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">Number</span>, <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">Boolean</span>, <span class="literal">true</span>); <span class="comment">// true</span></span><br><span class="line">is(<span class="built_in">Boolean</span>, <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">true</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-isAfterDate：检查是否在某日期后"><a href="#6-isAfterDate：检查是否在某日期后" class="headerlink" title="6. isAfterDate：检查是否在某日期后"></a>6. <code>isAfterDate</code>：检查是否在某日期后</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isAfterDate = <span class="function">(<span class="params">dateA, dateB</span>) =&gt;</span> dateA &gt; dateB;</span><br><span class="line"></span><br><span class="line">isAfterDate(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2010</span>, <span class="number">10</span>, <span class="number">21</span>), <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2010</span>, <span class="number">10</span>, <span class="number">20</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-isBeforeDate：检查是否在某日期前"><a href="#7-isBeforeDate：检查是否在某日期前" class="headerlink" title="7. isBeforeDate：检查是否在某日期前"></a>7. <code>isBeforeDate</code>：检查是否在某日期前</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isBeforeDate = <span class="function">(<span class="params">dateA, dateB</span>) =&gt;</span> dateA &lt; dateB;</span><br><span class="line"></span><br><span class="line">isBeforeDate(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2010</span>, <span class="number">10</span>, <span class="number">20</span>), <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2010</span>, <span class="number">10</span>, <span class="number">21</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-tomorrow：获取明天的字符串格式时间"><a href="#8-tomorrow：获取明天的字符串格式时间" class="headerlink" title="8 tomorrow：获取明天的字符串格式时间"></a>8 <code>tomorrow</code>：获取明天的字符串格式时间</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> tomorrow = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> t = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  t.setDate(t.getDate() + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> t.toISOString().split(<span class="string">'T'</span>)[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">tomorrow(); <span class="comment">// 2019-10-15 (如果明天是2019-10-15)</span></span><br></pre></td></tr></table></figure>
+<h3 id="9-equals：全等判断"><a href="#9-equals：全等判断" class="headerlink" title="9. equals：全等判断"></a>9. <code>equals</code>：全等判断</h3><p>在两个变量之间进行深度比较以确定它们是否全等。</p>
+<p><strong>此代码段精简的核心在于<code>Array.prototype.every()</code>的使用。</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> equals = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (a === b) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">if</span> (a <span class="keyword">instanceof</span> <span class="built_in">Date</span> &amp;&amp; b <span class="keyword">instanceof</span> <span class="built_in">Date</span>) <span class="keyword">return</span> a.getTime() === b.getTime();</span><br><span class="line">  <span class="keyword">if</span> (!a || !b || (<span class="keyword">typeof</span> a !== <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> b !== <span class="string">'object'</span>)) <span class="keyword">return</span> a === b;</span><br><span class="line">  <span class="keyword">if</span> (a.prototype !== b.prototype) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> keys = <span class="built_in">Object</span>.keys(a);</span><br><span class="line">  <span class="keyword">if</span> (keys.length !== <span class="built_in">Object</span>.keys(b).length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> keys.every(<span class="function"><span class="params">k</span> =&gt;</span> equals(a[k], b[k]));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>用法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">equals(&#123; <span class="attr">a</span>: [<span class="number">2</span>, &#123; <span class="attr">e</span>: <span class="number">3</span> &#125;], <span class="attr">b</span>: [<span class="number">4</span>], <span class="attr">c</span>: <span class="string">'foo'</span> &#125;, &#123; <span class="attr">a</span>: [<span class="number">2</span>, &#123; <span class="attr">e</span>: <span class="number">3</span> &#125;], <span class="attr">b</span>: [<span class="number">4</span>], <span class="attr">c</span>: <span class="string">'foo'</span> &#125;); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-第五部分：数字"><a href="#5-第五部分：数字" class="headerlink" title="5. 第五部分：数字"></a>5. 第五部分：数字</h2><h3 id="1-randomIntegerInRange：生成指定范围的随机整数"><a href="#1-randomIntegerInRange：生成指定范围的随机整数" class="headerlink" title="1. randomIntegerInRange：生成指定范围的随机整数"></a>1. <code>randomIntegerInRange</code>：生成指定范围的随机整数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> randomIntegerInRange = <span class="function">(<span class="params">min, max</span>) =&gt;</span> <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;</span><br><span class="line"></span><br><span class="line">randomIntegerInRange(<span class="number">0</span>, <span class="number">5</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-randomNumberInRange：生成指定范围的随机小数"><a href="#2-randomNumberInRange：生成指定范围的随机小数" class="headerlink" title="2. randomNumberInRange：生成指定范围的随机小数"></a>2. <code>randomNumberInRange</code>：生成指定范围的随机小数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> randomNumberInRange = <span class="function">(<span class="params">min, max</span>) =&gt;</span> <span class="built_in">Math</span>.random() * (max - min) + min;</span><br><span class="line"></span><br><span class="line">randomNumberInRange(<span class="number">2</span>, <span class="number">10</span>); <span class="comment">// 6.0211363285087005</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-round：四舍五入到指定位数"><a href="#3-round：四舍五入到指定位数" class="headerlink" title="3. round：四舍五入到指定位数"></a>3. <code>round</code>：四舍五入到指定位数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> round = <span class="function">(<span class="params">n, decimals = <span class="number">0</span></span>) =&gt;</span> <span class="built_in">Number</span>(<span class="string">`<span class="subst">$&#123;<span class="built_in">Math</span>.round(<span class="string">`<span class="subst">$&#123;n&#125;</span>e<span class="subst">$&#123;decimals&#125;</span>`</span>)&#125;</span>e-<span class="subst">$&#123;decimals&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">round(<span class="number">1.005</span>, <span class="number">2</span>); <span class="comment">// 1.01</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-sum：计算数组或多个数字的总和"><a href="#4-sum：计算数组或多个数字的总和" class="headerlink" title="4. sum：计算数组或多个数字的总和"></a>4. <code>sum</code>：计算数组或多个数字的总和</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">...arr</span>) =&gt;</span> [...arr].reduce(<span class="function">(<span class="params">acc, val</span>) =&gt;</span> acc + val, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>); <span class="comment">// 10</span></span><br><span class="line">sum(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-toCurrency：简单的货币单位转换"><a href="#5-toCurrency：简单的货币单位转换" class="headerlink" title="5. toCurrency：简单的货币单位转换"></a>5. <code>toCurrency</code>：简单的货币单位转换</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> toCurrency = <span class="function">(<span class="params">n, curr, LanguageFormat = <span class="literal">undefined</span></span>) =&gt;</span></span><br><span class="line">  <span class="built_in">Intl</span>.NumberFormat(LanguageFormat, &#123; <span class="attr">style</span>: <span class="string">'currency'</span>, <span class="attr">currency</span>: curr &#125;).format(n);</span><br><span class="line">  </span><br><span class="line">toCurrency(<span class="number">123456.789</span>, <span class="string">'EUR'</span>); <span class="comment">// €123,456.79</span></span><br><span class="line">toCurrency(<span class="number">123456.789</span>, <span class="string">'USD'</span>, <span class="string">'en-us'</span>); <span class="comment">// $123,456.79  </span></span><br><span class="line">toCurrency(<span class="number">123456.789</span>, <span class="string">'USD'</span>, <span class="string">'fa'</span>); <span class="comment">// ۱۲۳٬۴۵۶٫۷۹</span></span><br><span class="line">toCurrency(<span class="number">322342436423.2435</span>, <span class="string">'JPY'</span>); <span class="comment">// ¥322,342,436,423</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-第六部分：浏览器操作及其它"><a href="#6-第六部分：浏览器操作及其它" class="headerlink" title="6. 第六部分：浏览器操作及其它"></a>6. 第六部分：浏览器操作及其它</h2><h3 id="1-bottomVisible：检查页面底部是否可见"><a href="#1-bottomVisible：检查页面底部是否可见" class="headerlink" title="1. bottomVisible：检查页面底部是否可见"></a>1. <code>bottomVisible</code>：检查页面底部是否可见</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bottomVisible = <span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">  <span class="built_in">document</span>.documentElement.clientHeight + <span class="built_in">window</span>.scrollY &gt;=</span><br><span class="line">  (<span class="built_in">document</span>.documentElement.scrollHeight || <span class="built_in">document</span>.documentElement.clientHeight);</span><br><span class="line"></span><br><span class="line">bottomVisible(); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-Create-Directory：检查创建目录"><a href="#2-Create-Directory：检查创建目录" class="headerlink" title="2. Create Directory：检查创建目录"></a>2. <code>Create Directory</code>：检查创建目录</h3><p>此代码段调用<code>fs</code>模块的<code>existsSync()</code>检查目录是否存在，如果不存在，则<code>mkdirSync()</code>创建该目录。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">const</span> createDirIfNotExists = <span class="function"><span class="params">dir</span> =&gt;</span> (!fs.existsSync(dir) ? fs.mkdirSync(dir) : <span class="literal">undefined</span>);</span><br><span class="line">createDirIfNotExists(<span class="string">'test'</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-currentURL：返回当前链接url"><a href="#3-currentURL：返回当前链接url" class="headerlink" title="3. currentURL：返回当前链接url"></a>3. <code>currentURL</code>：返回当前链接<code>url</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> currentURL = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">window</span>.location.href;</span><br><span class="line"></span><br><span class="line">currentURL(); <span class="comment">// 'https://juejin.im'</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-distance：返回两点间的距离"><a href="#4-distance：返回两点间的距离" class="headerlink" title="4. distance：返回两点间的距离"></a>4. <code>distance</code>：返回两点间的距离</h3><p>该代码段通过计算欧几里得距离来返回两点之间的距离。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> distance = <span class="function">(<span class="params">x0, y0, x1, y1</span>) =&gt;</span> <span class="built_in">Math</span>.hypot(x1 - x0, y1 - y0);</span><br><span class="line"></span><br><span class="line">distance(<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 2.23606797749979</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="5-elementContains：检查是否包含子元素"><a href="#5-elementContains：检查是否包含子元素" class="headerlink" title="5. elementContains：检查是否包含子元素"></a>5. <code>elementContains</code>：检查是否包含子元素</h3><p>此代码段检查父元素是否包含子元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elementContains = <span class="function">(<span class="params">parent, child</span>) =&gt;</span> parent !== child &amp;&amp; parent.contains(child);</span><br><span class="line"></span><br><span class="line">elementContains(<span class="built_in">document</span>.querySelector(<span class="string">'head'</span>), <span class="built_in">document</span>.querySelector(<span class="string">'title'</span>)); <span class="comment">// true</span></span><br><span class="line">elementContains(<span class="built_in">document</span>.querySelector(<span class="string">'body'</span>), <span class="built_in">document</span>.querySelector(<span class="string">'body'</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="6-getStyle：返回指定元素的生效样式"><a href="#6-getStyle：返回指定元素的生效样式" class="headerlink" title="6. getStyle：返回指定元素的生效样式"></a>6. <code>getStyle</code>：返回指定元素的生效样式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getStyle = <span class="function">(<span class="params">el, ruleName</span>) =&gt;</span> getComputedStyle(el)[ruleName];</span><br><span class="line"></span><br><span class="line">getStyle(<span class="built_in">document</span>.querySelector(<span class="string">'p'</span>), <span class="string">'font-size'</span>); <span class="comment">// '16px'</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-getType：返回值或变量的类型名"><a href="#7-getType：返回值或变量的类型名" class="headerlink" title="7. getType：返回值或变量的类型名"></a>7. <code>getType</code>：返回值或变量的类型名</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getType = <span class="function"><span class="params">v</span> =&gt;</span></span><br><span class="line">  v === <span class="literal">undefined</span> ? <span class="string">'undefined'</span> : v === <span class="literal">null</span> ? <span class="string">'null'</span> : v.constructor.name.toLowerCase();</span><br><span class="line">  </span><br><span class="line">getType(<span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])); <span class="comment">// 'set'</span></span><br><span class="line">getType([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); <span class="comment">// 'array'</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-hasClass：校验指定元素的类名"><a href="#8-hasClass：校验指定元素的类名" class="headerlink" title="8. hasClass：校验指定元素的类名"></a>8. <code>hasClass</code>：校验指定元素的类名</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hasClass = <span class="function">(<span class="params">el, className</span>) =&gt;</span> el.classList.contains(className);</span><br><span class="line">hasClass(<span class="built_in">document</span>.querySelector(<span class="string">'p.special'</span>), <span class="string">'special'</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="9-hide：隐藏所有的指定标签"><a href="#9-hide：隐藏所有的指定标签" class="headerlink" title="9. hide：隐藏所有的指定标签"></a>9. <code>hide</code>：隐藏所有的指定标签</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hide = <span class="function">(<span class="params">...el</span>) =&gt;</span> [...el].forEach(<span class="function"><span class="params">e</span> =&gt;</span> (e.style.display = <span class="string">'none'</span>));</span><br><span class="line"></span><br><span class="line">hide(<span class="built_in">document</span>.querySelectorAll(<span class="string">'img'</span>)); <span class="comment">// 隐藏所有&lt;img&gt;标签</span></span><br></pre></td></tr></table></figure>
+<h3 id="10-httpsRedirect：HTTP-跳转-HTTPS"><a href="#10-httpsRedirect：HTTP-跳转-HTTPS" class="headerlink" title="10. httpsRedirect：HTTP 跳转 HTTPS"></a>10. <code>httpsRedirect</code>：<code>HTTP</code> 跳转 <code>HTTPS</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> httpsRedirect = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (location.protocol !== <span class="string">'https:'</span>) location.replace(<span class="string">'https://'</span> + location.href.split(<span class="string">'//'</span>)[<span class="number">1</span>]);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">httpsRedirect(); <span class="comment">// 若在`http://www.baidu.com`, 则跳转到`https://www.baidu.com`</span></span><br></pre></td></tr></table></figure>
+<h3 id="11-insertAfter：在指定元素之后插入新元素"><a href="#11-insertAfter：在指定元素之后插入新元素" class="headerlink" title="11.insertAfter：在指定元素之后插入新元素"></a>11.<code>insertAfter</code>：在指定元素之后插入新元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> insertAfter = <span class="function">(<span class="params">el, htmlString</span>) =&gt;</span> el.insertAdjacentHTML(<span class="string">'afterend'</span>, htmlString);</span><br><span class="line"></span><br><span class="line"><span class="comment">// &lt;div id="myId"&gt;...&lt;/div&gt; &lt;p&gt;after&lt;/p&gt;</span></span><br><span class="line">insertAfter(<span class="built_in">document</span>.getElementById(<span class="string">'myId'</span>), <span class="string">'&lt;p&gt;after&lt;/p&gt;'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="12-insertBefore：在指定元素之前插入新元素"><a href="#12-insertBefore：在指定元素之前插入新元素" class="headerlink" title="12.insertBefore：在指定元素之前插入新元素"></a>12.<code>insertBefore</code>：在指定元素之前插入新元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> insertBefore = <span class="function">(<span class="params">el, htmlString</span>) =&gt;</span> el.insertAdjacentHTML(<span class="string">'beforebegin'</span>, htmlString);</span><br><span class="line"></span><br><span class="line">insertBefore(<span class="built_in">document</span>.getElementById(<span class="string">'myId'</span>), <span class="string">'&lt;p&gt;before&lt;/p&gt;'</span>); <span class="comment">// &lt;p&gt;before&lt;/p&gt; &lt;div id="myId"&gt;...&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="13-isBrowser：检查是否为浏览器环境"><a href="#13-isBrowser：检查是否为浏览器环境" class="headerlink" title="13. isBrowser：检查是否为浏览器环境"></a>13. <code>isBrowser</code>：检查是否为浏览器环境</h3><p>此代码段可用于确定当前运行时环境是否为浏览器。这有助于避免在服务器（节点）上运行前端模块时出错。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isBrowser = <span class="function"><span class="params">()</span> =&gt;</span> ![<span class="keyword">typeof</span> <span class="built_in">window</span>, <span class="keyword">typeof</span> <span class="built_in">document</span>].includes(<span class="string">'undefined'</span>);</span><br><span class="line"></span><br><span class="line">isBrowser(); <span class="comment">// true (browser)</span></span><br><span class="line">isBrowser(); <span class="comment">// false (Node)</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="14-isBrowserTab：检查当前标签页是否活动"><a href="#14-isBrowserTab：检查当前标签页是否活动" class="headerlink" title="14. isBrowserTab：检查当前标签页是否活动"></a>14. <code>isBrowserTab</code>：检查当前标签页是否活动</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isBrowserTabFocused = <span class="function"><span class="params">()</span> =&gt;</span> !<span class="built_in">document</span>.hidden;</span><br><span class="line"></span><br><span class="line">isBrowserTabFocused(); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="15-nodeListToArray：转换nodeList为数组"><a href="#15-nodeListToArray：转换nodeList为数组" class="headerlink" title="15. nodeListToArray：转换nodeList为数组"></a>15. <code>nodeListToArray</code>：转换<code>nodeList</code>为数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nodeListToArray = <span class="function"><span class="params">nodeList</span> =&gt;</span> [...nodeList];</span><br><span class="line"></span><br><span class="line">nodeListToArray(<span class="built_in">document</span>.childNodes); <span class="comment">// [ &lt;!DOCTYPE html&gt;, html ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="16-Random-Hexadecimal-Color-Code：随机十六进制颜色"><a href="#16-Random-Hexadecimal-Color-Code：随机十六进制颜色" class="headerlink" title="16. Random Hexadecimal Color Code：随机十六进制颜色"></a>16. <code>Random Hexadecimal Color Code</code>：随机十六进制颜色</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> randomHexColorCode = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> n = (<span class="built_in">Math</span>.random() * <span class="number">0xfffff</span> * <span class="number">1000000</span>).toString(<span class="number">16</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'#'</span> + n.slice(<span class="number">0</span>, <span class="number">6</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">randomHexColorCode(); <span class="comment">// "#e34155"</span></span><br></pre></td></tr></table></figure>
+<h3 id="17-scrollToTop：平滑滚动至顶部"><a href="#17-scrollToTop：平滑滚动至顶部" class="headerlink" title="17. scrollToTop：平滑滚动至顶部"></a>17. <code>scrollToTop</code>：平滑滚动至顶部</h3><p>该代码段可用于平滑滚动到当前页面的顶部。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scrollToTop = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> c = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">  <span class="keyword">if</span> (c &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">window</span>.requestAnimationFrame(scrollToTop);</span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, c - c / <span class="number">8</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">scrollToTop();</span><br></pre></td></tr></table></figure></p>
+<h3 id="18-smoothScroll：滚动到指定元素区域"><a href="#18-smoothScroll：滚动到指定元素区域" class="headerlink" title="18. smoothScroll：滚动到指定元素区域"></a>18. <code>smoothScroll</code>：滚动到指定元素区域</h3><p>该代码段可将指定元素平滑滚动到浏览器窗口的可见区域。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> smoothScroll = <span class="function"><span class="params">element</span> =&gt;</span></span><br><span class="line">  <span class="built_in">document</span>.querySelector(element).scrollIntoView(&#123;</span><br><span class="line">    behavior: <span class="string">'smooth'</span></span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">smoothScroll(<span class="string">'#fooBar'</span>); </span><br><span class="line">smoothScroll(<span class="string">'.fooBar'</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="19-detectDeviceType：检测移动-PC设备"><a href="#19-detectDeviceType：检测移动-PC设备" class="headerlink" title="19. detectDeviceType：检测移动/PC设备"></a>19. <code>detectDeviceType</code>：检测移动/PC设备</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> detectDeviceType = <span class="function"><span class="params">()</span> =&gt;</span></span><br><span class="line">  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)</span><br><span class="line">    ? <span class="string">'Mobile'</span></span><br><span class="line">    : <span class="string">'Desktop'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="20-getScrollPosition：返回当前的滚动位置"><a href="#20-getScrollPosition：返回当前的滚动位置" class="headerlink" title="20. getScrollPosition：返回当前的滚动位置"></a>20. <code>getScrollPosition</code>：返回当前的滚动位置</h3><p>默认参数为<code>window</code> ，<code>pageXOffset(pageYOffset)</code>为第一选择，没有则用<code>scrollLeft(scrollTop)</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getScrollPosition = <span class="function">(<span class="params">el = <span class="built_in">window</span></span>) =&gt;</span> (&#123;</span><br><span class="line">  x: el.pageXOffset !== <span class="literal">undefined</span> ? el.pageXOffset : el.scrollLeft,</span><br><span class="line">  y: el.pageYOffset !== <span class="literal">undefined</span> ? el.pageYOffset : el.scrollTop</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">getScrollPosition(); <span class="comment">// &#123;x: 0, y: 200&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="21-size：获取不同类型变量的长度"><a href="#21-size：获取不同类型变量的长度" class="headerlink" title="21. size：获取不同类型变量的长度"></a>21. <code>size</code>：获取不同类型变量的长度</h3><p>这个的实现非常巧妙，利用<code>Blob</code>类文件对象的特性，获取对象的长度。</p>
+<p>另外，多重三元运算符，是真香。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> size = <span class="function"><span class="params">val</span> =&gt;</span></span><br><span class="line">  <span class="built_in">Array</span>.isArray(val)</span><br><span class="line">    ? val.length</span><br><span class="line">    : val &amp;&amp; <span class="keyword">typeof</span> val === <span class="string">'object'</span></span><br><span class="line">    ? val.size || val.length || <span class="built_in">Object</span>.keys(val).length</span><br><span class="line">    : <span class="keyword">typeof</span> val === <span class="string">'string'</span></span><br><span class="line">    ? <span class="keyword">new</span> Blob([val]).size</span><br><span class="line">    : <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">size([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]); <span class="comment">// 5</span></span><br><span class="line">size(<span class="string">'size'</span>); <span class="comment">// 4</span></span><br><span class="line">size(&#123; <span class="attr">one</span>: <span class="number">1</span>, <span class="attr">two</span>: <span class="number">2</span>, <span class="attr">three</span>: <span class="number">3</span> &#125;); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="22-escapeHTML：转义HTML"><a href="#22-escapeHTML：转义HTML" class="headerlink" title="22. escapeHTML：转义HTML"></a>22. <code>escapeHTML</code>：转义<code>HTML</code></h3><p>当然是用来防<code>XSS</code>攻击啦。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> escapeHTML = <span class="function"><span class="params">str</span> =&gt;</span></span><br><span class="line">  str.replace(</span><br><span class="line">    /[&amp;&lt;&gt;'"]/g,</span><br><span class="line">    tag =&gt;</span><br><span class="line">      (&#123;</span><br><span class="line">        '&amp;': '&amp;amp;',</span><br><span class="line">        '&lt;': '&amp;lt;',</span><br><span class="line">        '&gt;': '&amp;gt;',</span><br><span class="line">        "'": '&amp;#39;',</span><br><span class="line">        '"': '&amp;quot;'</span><br><span class="line">      &#125;[tag] || tag)</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">escapeHTML('&lt;a href="#"&gt;Me &amp; you&lt;/a&gt;'); // '&amp;lt;a href=&amp;quot;#&amp;quot;&amp;gt;Me &amp;amp; you&amp;lt;/a&amp;gt;'</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/前端问题记录/" rel="next" title="前端常见问题记录">
+                <i class="fa fa-chevron-left"></i> 前端常见问题记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zOTU2MC8xNjA4Nw"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="weipengjun" />
+            
+              <p class="site-author-name" itemprop="name">weipengjun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/weipengjun" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:835500598@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weipengjun.com" title="Title" target="_blank">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-第一部分：数组"><span class="nav-number">2.</span> <span class="nav-text">1. 第一部分：数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-all：布尔全等判断"><span class="nav-number">2.1.</span> <span class="nav-text">1. all：布尔全等判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-allEqual：检查数组各项相等"><span class="nav-number">2.2.</span> <span class="nav-text">2. allEqual：检查数组各项相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-approximatelyEqual：约等于"><span class="nav-number">2.3.</span> <span class="nav-text">3.approximatelyEqual：约等于</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-arrayToCSV：数组转CSV格式（带空格的字符串）"><span class="nav-number">2.4.</span> <span class="nav-text">4.arrayToCSV：数组转CSV格式（带空格的字符串）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-arrayToHtmlList：数组转li列表"><span class="nav-number">2.5.</span> <span class="nav-text">5.arrayToHtmlList：数组转li列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-average：平均数"><span class="nav-number">2.6.</span> <span class="nav-text">6. average：平均数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-averageBy：数组对象属性平均数"><span class="nav-number">2.7.</span> <span class="nav-text">7. averageBy：数组对象属性平均数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-bifurcate：拆分断言后的数组"><span class="nav-number">2.8.</span> <span class="nav-text">8.bifurcate：拆分断言后的数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-castArray：其它类型转数组"><span class="nav-number">2.9.</span> <span class="nav-text">9. castArray：其它类型转数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-compact：去除数组中的无效-无用值"><span class="nav-number">2.10.</span> <span class="nav-text">10. compact：去除数组中的无效/无用值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-countOccurrences：检测数值出现次数"><span class="nav-number">2.11.</span> <span class="nav-text">11. countOccurrences：检测数值出现次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-deepFlatten：递归扁平化数组"><span class="nav-number">2.12.</span> <span class="nav-text">12. deepFlatten：递归扁平化数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-difference：寻找差异"><span class="nav-number">2.13.</span> <span class="nav-text">13. difference：寻找差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-differenceBy：先执行再寻找差异"><span class="nav-number">2.14.</span> <span class="nav-text">14. differenceBy：先执行再寻找差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-dropWhile：删除不符合条件的值"><span class="nav-number">2.15.</span> <span class="nav-text">15. dropWhile：删除不符合条件的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-flatten：指定深度扁平化数组"><span class="nav-number">2.16.</span> <span class="nav-text">16. flatten：指定深度扁平化数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-indexOfAll：返回数组中某值的所有索引"><span class="nav-number">2.17.</span> <span class="nav-text">17. indexOfAll：返回数组中某值的所有索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-intersection：两数组的交集"><span class="nav-number">2.18.</span> <span class="nav-text">18. intersection：两数组的交集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-intersectionWith：两数组都符合条件的交集"><span class="nav-number">2.19.</span> <span class="nav-text">19. intersectionWith：两数组都符合条件的交集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-intersectionWith：先比较后返回交集"><span class="nav-number">2.20.</span> <span class="nav-text">20. intersectionWith：先比较后返回交集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-minN：返回指定长度的升序数组"><span class="nav-number">2.21.</span> <span class="nav-text">21. minN：返回指定长度的升序数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-negate：根据条件反向筛选"><span class="nav-number">2.22.</span> <span class="nav-text">22. negate：根据条件反向筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23-randomIntArrayInRange：生成两数之间指定长度的随机数组"><span class="nav-number">2.23.</span> <span class="nav-text">23. randomIntArrayInRange：生成两数之间指定长度的随机数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24-sample：在指定数组中获取随机数"><span class="nav-number">2.24.</span> <span class="nav-text">24. sample：在指定数组中获取随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25-sampleSize：在指定数组中获取指定长度的随机数"><span class="nav-number">2.25.</span> <span class="nav-text">25. sampleSize：在指定数组中获取指定长度的随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26-shuffle：“洗牌”-数组"><span class="nav-number">2.26.</span> <span class="nav-text">26. shuffle：“洗牌” 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27-nest：根据parent-id生成树结构（阿里一面真题）"><span class="nav-number">2.27.</span> <span class="nav-text">27. nest：根据parent_id生成树结构（阿里一面真题）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-第二部分：函数"><span class="nav-number">3.</span> <span class="nav-text">2. 第二部分：函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-attempt：捕获函数运行异常"><span class="nav-number">3.1.</span> <span class="nav-text">1.attempt：捕获函数运行异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-defer：推迟执行"><span class="nav-number">3.2.</span> <span class="nav-text">2. defer：推迟执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-runPromisesInSeries：运行多个Promises"><span class="nav-number">3.3.</span> <span class="nav-text">3. runPromisesInSeries：运行多个Promises</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-timeTaken：计算函数执行时间"><span class="nav-number">3.4.</span> <span class="nav-text">4. timeTaken：计算函数执行时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-createEventHub：简单的发布-订阅模式"><span class="nav-number">3.5.</span> <span class="nav-text">5. createEventHub：简单的发布/订阅模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-memoize：缓存函数"><span class="nav-number">3.6.</span> <span class="nav-text">6.memoize：缓存函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-once：只调用一次的函数"><span class="nav-number">3.7.</span> <span class="nav-text">7. once：只调用一次的函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-flattenObject：以键的路径扁平化对象"><span class="nav-number">3.8.</span> <span class="nav-text">8.flattenObject：以键的路径扁平化对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-unflattenObject：以键的路径展开对象"><span class="nav-number">3.9.</span> <span class="nav-text">9. unflattenObject：以键的路径展开对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-第三部分：字符串"><span class="nav-number">4.</span> <span class="nav-text">3. 第三部分：字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-byteSize：返回字符串的字节长度"><span class="nav-number">4.1.</span> <span class="nav-text">1.byteSize：返回字符串的字节长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-capitalize：首字母大写"><span class="nav-number">4.2.</span> <span class="nav-text">2. capitalize：首字母大写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-capitalizeEveryWord：每个单词首字母大写"><span class="nav-number">4.3.</span> <span class="nav-text">3. capitalizeEveryWord：每个单词首字母大写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-decapitalize：首字母小写"><span class="nav-number">4.4.</span> <span class="nav-text">4. decapitalize：首字母小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-luhnCheck：银行卡号码校验（luhn算法）"><span class="nav-number">4.5.</span> <span class="nav-text">5. luhnCheck：银行卡号码校验（luhn算法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#补充：银行卡号码的校验规则："><span class="nav-number">4.5.1.</span> <span class="nav-text">补充：银行卡号码的校验规则：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-splitLines：将多行字符串拆分为行数组。"><span class="nav-number">4.6.</span> <span class="nav-text">6. splitLines：将多行字符串拆分为行数组。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-stripHTMLTags：删除字符串中的HTMl标签"><span class="nav-number">4.7.</span> <span class="nav-text">7. stripHTMLTags：删除字符串中的HTMl标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-第四部分：对象"><span class="nav-number">5.</span> <span class="nav-text">4. 第四部分：对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-dayOfYear：当前日期天数"><span class="nav-number">5.1.</span> <span class="nav-text">1. dayOfYear：当前日期天数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-forOwn：迭代属性并执行回调"><span class="nav-number">5.2.</span> <span class="nav-text">2. forOwn：迭代属性并执行回调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Get-Time-From-Date：返回当前24小时制时间的字符串"><span class="nav-number">5.3.</span> <span class="nav-text">3. Get Time From Date：返回当前24小时制时间的字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Get-Days-Between-Dates：返回日期间的天数"><span class="nav-number">5.4.</span> <span class="nav-text">4. Get Days Between Dates：返回日期间的天数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-is：检查值是否为特定类型。"><span class="nav-number">5.5.</span> <span class="nav-text">5. is：检查值是否为特定类型。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-isAfterDate：检查是否在某日期后"><span class="nav-number">5.6.</span> <span class="nav-text">6. isAfterDate：检查是否在某日期后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-isBeforeDate：检查是否在某日期前"><span class="nav-number">5.7.</span> <span class="nav-text">7. isBeforeDate：检查是否在某日期前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-tomorrow：获取明天的字符串格式时间"><span class="nav-number">5.8.</span> <span class="nav-text">8 tomorrow：获取明天的字符串格式时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-equals：全等判断"><span class="nav-number">5.9.</span> <span class="nav-text">9. equals：全等判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-第五部分：数字"><span class="nav-number">6.</span> <span class="nav-text">5. 第五部分：数字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-randomIntegerInRange：生成指定范围的随机整数"><span class="nav-number">6.1.</span> <span class="nav-text">1. randomIntegerInRange：生成指定范围的随机整数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-randomNumberInRange：生成指定范围的随机小数"><span class="nav-number">6.2.</span> <span class="nav-text">2. randomNumberInRange：生成指定范围的随机小数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-round：四舍五入到指定位数"><span class="nav-number">6.3.</span> <span class="nav-text">3. round：四舍五入到指定位数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-sum：计算数组或多个数字的总和"><span class="nav-number">6.4.</span> <span class="nav-text">4. sum：计算数组或多个数字的总和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-toCurrency：简单的货币单位转换"><span class="nav-number">6.5.</span> <span class="nav-text">5. toCurrency：简单的货币单位转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-第六部分：浏览器操作及其它"><span class="nav-number">7.</span> <span class="nav-text">6. 第六部分：浏览器操作及其它</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-bottomVisible：检查页面底部是否可见"><span class="nav-number">7.1.</span> <span class="nav-text">1. bottomVisible：检查页面底部是否可见</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Create-Directory：检查创建目录"><span class="nav-number">7.2.</span> <span class="nav-text">2. Create Directory：检查创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-currentURL：返回当前链接url"><span class="nav-number">7.3.</span> <span class="nav-text">3. currentURL：返回当前链接url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-distance：返回两点间的距离"><span class="nav-number">7.4.</span> <span class="nav-text">4. distance：返回两点间的距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-elementContains：检查是否包含子元素"><span class="nav-number">7.5.</span> <span class="nav-text">5. elementContains：检查是否包含子元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-getStyle：返回指定元素的生效样式"><span class="nav-number">7.6.</span> <span class="nav-text">6. getStyle：返回指定元素的生效样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-getType：返回值或变量的类型名"><span class="nav-number">7.7.</span> <span class="nav-text">7. getType：返回值或变量的类型名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-hasClass：校验指定元素的类名"><span class="nav-number">7.8.</span> <span class="nav-text">8. hasClass：校验指定元素的类名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-hide：隐藏所有的指定标签"><span class="nav-number">7.9.</span> <span class="nav-text">9. hide：隐藏所有的指定标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-httpsRedirect：HTTP-跳转-HTTPS"><span class="nav-number">7.10.</span> <span class="nav-text">10. httpsRedirect：HTTP 跳转 HTTPS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-insertAfter：在指定元素之后插入新元素"><span class="nav-number">7.11.</span> <span class="nav-text">11.insertAfter：在指定元素之后插入新元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-insertBefore：在指定元素之前插入新元素"><span class="nav-number">7.12.</span> <span class="nav-text">12.insertBefore：在指定元素之前插入新元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-isBrowser：检查是否为浏览器环境"><span class="nav-number">7.13.</span> <span class="nav-text">13. isBrowser：检查是否为浏览器环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-isBrowserTab：检查当前标签页是否活动"><span class="nav-number">7.14.</span> <span class="nav-text">14. isBrowserTab：检查当前标签页是否活动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-nodeListToArray：转换nodeList为数组"><span class="nav-number">7.15.</span> <span class="nav-text">15. nodeListToArray：转换nodeList为数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-Random-Hexadecimal-Color-Code：随机十六进制颜色"><span class="nav-number">7.16.</span> <span class="nav-text">16. Random Hexadecimal Color Code：随机十六进制颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-scrollToTop：平滑滚动至顶部"><span class="nav-number">7.17.</span> <span class="nav-text">17. scrollToTop：平滑滚动至顶部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-smoothScroll：滚动到指定元素区域"><span class="nav-number">7.18.</span> <span class="nav-text">18. smoothScroll：滚动到指定元素区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19-detectDeviceType：检测移动-PC设备"><span class="nav-number">7.19.</span> <span class="nav-text">19. detectDeviceType：检测移动/PC设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20-getScrollPosition：返回当前的滚动位置"><span class="nav-number">7.20.</span> <span class="nav-text">20. getScrollPosition：返回当前的滚动位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21-size：获取不同类型变量的长度"><span class="nav-number">7.21.</span> <span class="nav-text">21. size：获取不同类型变量的长度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22-escapeHTML：转义HTML"><span class="nav-number">7.22.</span> <span class="nav-text">22. escapeHTML：转义HTML</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">weipengjun</span>
+  <a href="http://beian.miit.gov.cn/">粤ICP备18046219号</a> 
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
