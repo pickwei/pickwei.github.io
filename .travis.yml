@@ -26,8 +26,8 @@ after_script:
 branches:
   only:
   - next
-env:
- global:
+#env:
+ #global:
    # Github Pages
    - GH_REF: github.com/weipengjun/weipengjun.github.io
    # Coding Pages
